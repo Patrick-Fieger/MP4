@@ -2,7 +2,7 @@ var request = require('request')
 , mongoose = require('mongoose')
 , fs = require('fs-extra')
 , db = mongoose.connection
-, search = ['Low Carb','Curry','Schnitzel','Rucola','Brocolie']
+, search = ['Leberwurst']
 , anzahl = 5
 
 
