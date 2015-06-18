@@ -2,8 +2,8 @@ var request = require('request')
 , mongoose = require('mongoose')
 , fs = require('fs-extra')
 , db = mongoose.connection
-, search = ['Leberwurst']
-, anzahl = 5
+, search = ['Schafskäse', 'Tomate', 'Zuchini', 'Gurke', 'Mehl', 'Zucker', 'Salz', 'Kräuter', 'Eier', 'Honig', 'Marmelade', 'Hefe', 'Kartoffeln', 'Fisch', 'Gnoochi', 'Eichbergsalat', 'Kopfsalt', 'Reis', 'Nudeln', 'Oliven', 'Paprika', 'Käse', 'Mais', 'Spargel', 'Ziebeln', 'Knoblauch', 'Tortelini', 'Pilze']
+, anzahl = 15
 
 
 var RezeptSchema = mongoose.Schema({
