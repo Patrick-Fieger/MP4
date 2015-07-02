@@ -1,1 +1,129 @@
-/* Empty. Add your own CSS if you like */
+.margin{
+	margin: 10px 0;
+}
+
+.nobord{
+	border-width: 0 !important
+}
+
+.fl{
+	float: left !important;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.spezial_p{
+	font-weight: bolder;
+	font-size: 20px;
+	color: #222;
+}
+
+
+.spezial-col{
+	width: 48%;
+	margin: 1% !important;
+	float: left;
+	text-decoration: none
+}
+
+.tabs-striped .tab-item.active{
+	border-color: #89c63c
+}
+
+
+.img-spezial{
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.big_select{
+	-webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
+   text-align: center;
+   background-color: #fff;
+   font-size: 20px;
+   font-weight: bolder;
+   padding: 10px;
+   border-color: rgb(221, 221, 221);
+   color: #222
+}
+
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p{
+  overflow: auto;
+  text-overflow: inherit;
+  white-space: inherit;
+}
+
+.mh90{
+	min-height: 80px;
+	height: auto
+}
+
+.pr{
+	position: relative;
+}
+
+.h200 {
+	height: 300px;
+}
+
+.details_heading{
+	position: absolute;
+	width: 100%;
+	background: rgba(255,255,255,0.8);
+	bottom: 0;
+	padding: 10px;
+}
+
+.details_heading h1,
+.details_heading p,
+.persons p{
+	margin: 0;
+}
+
+.details_heading h1{
+	font-size: 20px;
+	color: #222;
+	margin: 0px;
+}
+
+.details_heading p{
+	color: #999
+}
+
+.persons{
+	width: 100%;
+	padding: 20px;
+}
+
+
+.persons p {
+	font-size: 20px;
+	text-align: center;
+}
+
+.unit{
+	width: 75px;
+  	float: left;
+  	font-weight: bolder;
+}
+
+.leaflet-control-container{
+	display: none !important
+}
+
+.range_padding{
+	padding: 0 30px; 
+}
+
+
+
+
+
+
+

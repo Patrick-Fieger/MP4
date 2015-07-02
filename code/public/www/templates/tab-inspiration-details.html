@@ -1,0 +1,56 @@
+<ion-view view-title="{{recipe.heading}}">
+<div class="tabs-striped tabs-top tabs-background-light tabs-color-black">
+    <div class="tabs">
+        <a class="tab-item" ng-class="{active : rezepte}" href="" ng-click="toggleView()">
+        <p class="spezial_p">Rezept</p>
+        </a>
+        <a class="tab-item" ng-class="{active : !rezepte}" href="" ng-click="toggleView()">
+        <p class="spezial_p">Standorte</p>
+        </a>
+    </div>
+</div>
+<ion-content ng-show="rezepte">
+<div class="img-spezial h200 pr" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
+    <div class="details_heading">
+        <h1>{{recipe.heading}}</h1>
+        <p>{{recipe.art}} - keine Einkäufe nötig</p>
+    </div>
+</div>
+<div class="persons">
+    <p>Ich Koche für <span>{{amount}}</span> Person(en)</p>
+</div>
+<div class="item range range-positive range_padding">
+    <input ng-model="amount" value="1" min="1" max="10" type="range" name="volume">
+</div>
+<div class="list" style="margin-top:50px">
+    <div class="item item-divider">
+        Eigener Vorrat
+    </div>
+    <p class="item">
+    <span class="unit">{{500 * amount}}g</span> Nudeln (Rigatoni o. ä.)
+    </p>
+    <p class="item">
+    <span class="unit">{{250 * amount}}g</span> Kirschtomate(n)
+    </p>
+    <p class="item">
+    <span class="unit">{{50 * amount}}g</span> Oliven, schwarz, ohne Kerne
+    </p>
+    <div class="item item-divider">
+        Community
+    </div>
+    <p class="item">
+    <span class="unit">200g</span> Schafskäse
+    </p>
+    <p class="item">
+    <span class="unit">1 Bund</span> Petasilie
+    </p>
+</div>
+</ion-content>
+
+
+<ion-content ng-show="!rezepte">
+    <leaflet id="map" leaflet-container leaflet-fade-anim center="center" layers="layers" height="300px" width="100%"></leaflet>
+</ion-content>
+
+
+</ion-view>
