@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('InspirationCtrl', function($scope) {})
 
-.controller('InspirationDetailCtrl', function($scope,$stateParams) {
+.controller('InspirationDetailCtrl', function($scope,$stateParams,$ionicActionSheet) {
   $scope.id = $stateParams.recepiId;
   $scope.recipe = {
     heading : "Das ist mein Rezept",
@@ -34,14 +34,26 @@ angular.module('starter.controllers', [])
     }
   });
 
+  $scope.onHold = function(e){
+    
+    var hideSheet = $ionicActionSheet.show({
+     buttons: [
+       { text: 'Ich möchte dieses Produkt abholen!' }
+     ],
+     cancelText: 'Schließen',
+     cancel: function() {
+     
+     },
+     buttonClicked: function(index) {
+       angular.element(e.target).parent().addClass('active')
+       return true;
+     }
+   });
+  }
+
 })
 
 .controller('MerklisteCtrl', function($scope, Chats, $ionicPopup) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
   $scope.$on('$ionicView.enter', function(e) {
     $scope.chats = Chats.all();
   });
@@ -61,16 +73,40 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('WarenCtrl', function($scope, $stateParams, Chats) {
+.controller('WarenCtrl', function($scope, $stateParams) {
   $scope.$on('$ionicView.enter', function(e) {
 
   });
 })
 
+.controller('InventarCtrl', function($scope, $stateParams,$ionicPopup) {
+  $scope.share = function(){
+    showSimpleAlert('Lebensmittel erfolgreich geteilt! :)',$ionicPopup)
+  }
 
+
+  $scope.remove = function(){
+    showSimpleAlert('Lebensmittel erfolgreich gelöscht!',$ionicPopup)
+  }
+
+})
+
+
+.controller('EinkaufslisteCtrl', function($scope) {
+  // alert('wefoiwmefoim')
+})
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
   };
 });
+
+
+
+function showSimpleAlert(text,$ionicPopup){
+  var alertPopup = $ionicPopup.alert({
+     // title: 'Don\'t eat that!',
+     template: text
+  });
+}

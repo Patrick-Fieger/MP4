@@ -86,12 +86,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','l
     }
   })
 
-  .state('tab.waren', {
-    url: '/waren',
+  
+  .state('tab.einkaufsliste', {
+    url: '/einkaufsliste',
     views: {
-      'tab-waren': {
-        templateUrl: 'templates/tab-waren.html',
-        controller: 'WarenCtrl'
+      'tab-account': {
+        templateUrl: 'templates/tab-einkaufsliste.html',
+        controller: 'EinkaufslisteCtrl'
+      }
+    }
+  })
+
+  .state('tab.inventar', {
+    url: '/inventar',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/tab-inventar.html',
+        controller: 'InventarCtrl'
       }
     }
   });

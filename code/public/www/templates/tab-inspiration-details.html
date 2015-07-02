@@ -1,5 +1,5 @@
 <ion-view view-title="{{recipe.heading}}">
-<div class="tabs-striped tabs-top tabs-background-light tabs-color-black">
+<!-- <div class="tabs-striped tabs-top tabs-background-light tabs-color-black">
     <div class="tabs">
         <a class="tab-item" ng-class="{active : rezepte}" href="" ng-click="toggleView()">
         <p class="spezial_p">Rezept</p>
@@ -8,7 +8,7 @@
         <p class="spezial_p">Standorte</p>
         </a>
     </div>
-</div>
+</div> -->
 <ion-content ng-show="rezepte">
 <div class="img-spezial h200 pr" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
     <div class="details_heading">
@@ -26,31 +26,37 @@
     <div class="item item-divider">
         Eigener Vorrat
     </div>
-    <p class="item">
-    <span class="unit">{{500 * amount}}g</span> Nudeln (Rigatoni o. ä.)
-    </p>
-    <p class="item">
-    <span class="unit">{{250 * amount}}g</span> Kirschtomate(n)
-    </p>
-    <p class="item">
-    <span class="unit">{{50 * amount}}g</span> Oliven, schwarz, ohne Kerne
-    </p>
+    <div class="item">
+        <span class="unit">{{500 * amount}}g</span>
+        <p>Nudeln (Rigatoni o. ä.)</p>
+    </div>
+    <div class="item">
+        <span class="unit">{{250 * amount}}g</span>
+        <p>Kirschtomate(n)</p>
+    </div>
+    <div class="item">
+        <span class="unit">{{50 * amount}}g</span>
+        <p>Oliven, schwarz, ohne Kerne</p>
+    </div>
     <div class="item item-divider">
         Community
     </div>
-    <p class="item">
-    <span class="unit">200g</span> Schafskäse
-    </p>
-    <p class="item">
-    <span class="unit">1 Bund</span> Petasilie
-    </p>
+    <div class="item holding_" on-tap="onHold($event)">
+        <span class="unit">200g</span>
+        <p> Schafskäse<br> <i class="italic">1 km entfernt</i></p>
+
+    </div>
+    <div class="item holding_" on-tap="onHold($event)">
+        <span class="unit">1 Bund</span>
+        <p> Petasilie<br> <i class="italic">1 km entfernt</i></p>
+    </div>
 </div>
 </ion-content>
 
 
-<ion-content ng-show="!rezepte">
+<!-- <ion-content ng-show="!rezepte">
     <leaflet id="map" leaflet-container leaflet-fade-anim center="center" layers="layers" height="300px" width="100%"></leaflet>
-</ion-content>
+</ion-content> -->
 
 
 </ion-view>
