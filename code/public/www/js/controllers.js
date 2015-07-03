@@ -9,30 +9,6 @@ angular.module('starter.controllers', [])
     art : "Vegetarisch"
   }
   $scope.amount = 1;
-  $scope.rezepte = true;
-  $scope.toggleView = function(){
-    $scope.rezepte = !$scope.rezepte;
-  }
-
-  angular.extend($scope, {
-    center: {
-        autoDiscover: true
-    },
-    markers: {},
-    layers: {
-        baselayers: {
-            mapbox_light: {
-                name: 'Mapbox Light',
-                url: 'http://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={apikey}',
-                type: 'xyz',
-                layerOptions: {
-                    apikey: 'pk.eyJ1IjoicGF0cmlja2ZpZWdlciIsImEiOiI5ZHRLTGpzIn0.BXY_La-J8qE0Jf3lwofrrw',
-                    mapid: 'patrickfieger.klafa28i'
-                }
-            }
-        }
-    }
-  });
 
   $scope.onHold = function(e){
     
@@ -93,8 +69,19 @@ angular.module('starter.controllers', [])
 
 
 .controller('EinkaufslisteCtrl', function($scope) {
-  // alert('wefoiwmefoim')
+  
 })
+
+.controller('NachrichtenCtrl', function($scope) {
+  
+})
+
+
+.controller('NachrichtenDetailsCtrl', function($scope) {
+  
+})
+
+
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
