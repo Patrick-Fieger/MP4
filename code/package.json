@@ -13,8 +13,6 @@
     "uuid": "^2.0.1",
     "fs": "0.0.2",
     "fs-extra": "^0.18.1",
-    "request": "^2.55.0",
-    "grunt": "^0.4.5",
-    "grunt-include-replace": "^3.0.0"
+    "request": "^2.55.0"
   }
 }

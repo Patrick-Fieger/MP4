@@ -12,16 +12,11 @@
     </select>
 </div>
 
-
-
-
-
-<a class="list card spezial-col" href="#/tab/inspiration/1">
-    <div class="item item-image img-spezial" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
-        <!-- <img src="/img/ionic.png"> -->
+<a class="list card spezial-col" href="#/tab/inspiration/1" ng-repeat="recipe in recipes">
+    <div class="item item-image img-spezial" style="background-image:url({{recipe.rezept_bilder[0]}})">
     </div>
     <div class="item mh90">
-        <h2>Nudeln mit Tomaten, Schafskäse und Oliven</h2>
+        <h2>{{recipe.rezept_name}}</h2>
     </div>
     <div class="item item-icon-left assertive">
     <i class="icon ion-ios-heart"></i>
@@ -29,90 +24,6 @@
       <p>kein Einkauf</p>
     </div>
 </a>
-
-
-<a class="list card spezial-col" href="#/tab/inspiration/1">
-    <div class="item item-image img-spezial" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
-        <!-- <img src="/img/ionic.png"> -->
-    </div>
-    <div class="item mh90">
-        <h2>Nudeln mit Tomaten, Schafskäse und Oliven</h2>
-        
-    </div>
-    <div class="item item-icon-left" >
-    <i class="icon ion-ios-heart-outline"></i>
-      <p class="bold">Vegetarisch</p>
-      <p>Einkauf nötig</p>
-    </div>
-</a>
-
-<a class="list card spezial-col" href="#/tab/inspiration/1">
-    <div class="item item-image img-spezial" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
-        <!-- <img src="/img/ionic.png"> -->
-    </div>
-    <div class="item mh90">
-        <h2>Nudeln mit Tomaten, Schafskäse und Oliven</h2>
-        
-    </div>
-    <div class="item item-icon-left" >
-    <i class="icon ion-ios-heart-outline"></i>
-      <p class="bold">Vegetarisch</p>
-      <p>Einkauf nötig</p>
-    </div>
-</a>
-
-<a class="list card spezial-col" href="#/tab/inspiration/1">
-    <div class="item item-image img-spezial" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
-        <!-- <img src="/img/ionic.png"> -->
-    </div>
-    <div class="item mh90">
-        <h2>Nudeln mit Tomaten, Schafskäse und Oliven</h2>
-        
-    </div>
-    <div class="item item-icon-left" >
-    <i class="icon ion-ios-heart-outline"></i>
-      <p class="bold">Vegetarisch</p>
-      <p>Einkauf nötig</p>
-    </div>
-</a>
-
-<a class="list card spezial-col" href="#/tab/inspiration/1">
-    <div class="item item-image img-spezial" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
-        <!-- <img src="/img/ionic.png"> -->
-    </div>
-    <div class="item mh90">
-        <h2>Nudeln mit Tomaten, Schafskäse und Oliven</h2>
-        
-    </div>
-    <div class="item item-icon-left" >
-    <i class="icon ion-ios-heart-outline"></i>
-      <p class="bold">Vegetarisch</p>
-      <p>Einkauf nötig</p>
-    </div>
-</a>
-
-<a class="list card spezial-col" href="#/tab/inspiration/1">
-    <div class="item item-image img-spezial" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
-        <!-- <img src="/img/ionic.png"> -->
-    </div>
-    <div class="item mh90">
-        <h2>Nudeln mit Tomaten, Schafskäse und Oliven</h2>
-        
-    </div>
-    <div class="item item-icon-left" >
-    <i class="icon ion-ios-heart-outline"></i>
-      <p class="bold">Vegetarisch</p>
-      <p>Einkauf nötig</p>
-    </div>
-</a>
-
-
-
-
-
-
-
-
 
 </ion-content>
 </ion-view>

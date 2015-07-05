@@ -22,7 +22,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .constant("conf", {
-        "url": "http://localhost:3000"
+        "api": "http://localhost:3000/",
+        "photo_url" : "http://kaizwier.de/MP4_imgs/"
 })
 
 .config(function($stateProvider, $urlRouterProvider) {

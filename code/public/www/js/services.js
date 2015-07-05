@@ -42,4 +42,14 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.service('InspirationService', function($http,conf) {
+  var getInspiration = function(){
+    return $http.get(conf.api + 'inspiration')
+  }
+
+  return {
+    getInspiration : getInspiration
+  }
 });

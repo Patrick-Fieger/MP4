@@ -1,6 +1,22 @@
 angular.module('starter.controllers', [])
 
-.controller('InspirationCtrl', function($scope) {})
+.controller('InspirationCtrl', function($scope,InspirationService,conf) {
+  InspirationService.getInspiration().success(buildInspiration)
+
+  function buildInspiration (data, status, headers, config) {
+    var recipes = data;
+    
+    for (var i = 0; i < recipes.length; i++) {
+      var path = recipes[i].rezept_bilder[0];
+
+      if(path){
+        recipes[i].rezept_bilder[0] = conf.photo_url + recipes[i].rezept_show_id + '/' +  path.substring(path.lastIndexOf("/") + 1, path.length);
+      }
+    };
+
+    $scope.recipes = recipes;
+  }
+})
 
 .controller('InspirationDetailCtrl', function($scope,$stateParams,$ionicActionSheet) {
   $scope.id = $stateParams.recepiId;
