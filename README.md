@@ -1,2 +1,9 @@
 # MP4
-Das ist das offizielle Repo
+Projekt des 4. Semesters
+
+- Arduino
+- NFC
+- Ionic Framework
+- AngularJS
+- NodeJS
+- MongoDB
