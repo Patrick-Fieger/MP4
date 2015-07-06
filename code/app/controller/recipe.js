@@ -1,12 +1,17 @@
 var Recipe = require('../models/recipe.js');
 
 function inspiration (req,res){
+
+	console.log(req)
+
 	Recipe.find({},function(err,recipes){
+		var r = recipes
+
 		var back = [];
 		var randomInt = makeUniqueRandom(recipes.length)
 
 		for (var i = 0; i < 10; i++) {
-			back.push(recipes[randomInt[i]])
+			back.push(r[randomInt[i]])
 		};
 
 		res.send(back).status(200).end();

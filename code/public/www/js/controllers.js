@@ -5,9 +5,13 @@ angular.module('starter.controllers', [])
 
   function buildInspiration (data, status, headers, config) {
     var recipes = data;
-    
     for (var i = 0; i < recipes.length; i++) {
       var path = recipes[i].rezept_bilder[0];
+      if(recipes[i].rezept_tags.indexOf("vegan") > -1 || recipes[i].rezept_tags.indexOf("Vegan") > -1){
+        recipes[i].food_typ = "Vegan"
+      }else if(recipes[i].rezept_tags.indexOf("vegetarisch") > -1 || recipes[i].rezept_tags.indexOf("Vegetarisch") > -1){
+        recipes[i].food_typ = "Vegetarisch"
+      }
 
       if(path){
         recipes[i].rezept_bilder[0] = conf.photo_url + recipes[i].rezept_show_id + '/' +  path.substring(path.lastIndexOf("/") + 1, path.length);
@@ -15,7 +19,23 @@ angular.module('starter.controllers', [])
     };
 
     $scope.recipes = recipes;
+
+
+
+
   }
+
+
+  $scope.toggleMerkliste = function($event){
+    if(angular.element($event.target).hasClass('ion-ios-heart-outline')){
+      angular.element($event.target).removeClass('ion-ios-heart-outline').addClass('ion-ios-heart');
+    }else{
+      angular.element($event.target).removeClass('ion-ios-heart').addClass('ion-ios-heart-outline');
+    }
+    
+
+  }
+
 })
 
 .controller('InspirationDetailCtrl', function($scope,$stateParams,$ionicActionSheet) {

@@ -2,6 +2,10 @@
 	margin: 10px 0;
 }
 
+a{
+	text-decoration: none;
+}
+
 .nobord{
 	border-width: 0 !important
 }
@@ -53,11 +57,11 @@
    color: #222
 }
 
-.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p{
+/*.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p{
   overflow: auto;
   text-overflow: inherit;
   white-space: inherit;
-}
+}*/
 
 .mh90{
 	min-height: 80px;
@@ -166,4 +170,16 @@
 	color: #fff;
 }
 
+
+.food_typ{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 4px;
+	background-color: rgba(0,0,0,0.8);
+	border-top-right-radius: 2px;
+	color: #fff !important;
+	font-size: 13px !important;
+
+}
 

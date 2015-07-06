@@ -12,18 +12,22 @@
     </select>
 </div>
 
-<a class="list card spezial-col" href="#/tab/inspiration/1" ng-repeat="recipe in recipes">
-    <div class="item item-image img-spezial" style="background-image:url({{recipe.rezept_bilder[0]}})">
-    </div>
-    <div class="item mh90">
-        <h2>{{recipe.rezept_name}}</h2>
-    </div>
+<div class="list card spezial-col" ng-repeat="recipe in recipes">
+    <a href="#/tab/inspiration/{{recipe.rezept_show_id}}">
+        <div class="item item-image img-spezial" style="background-image:url({{recipe.rezept_bilder[0]}})">
+            <p class="food_typ" ng-show="recipe.food_typ">{{recipe.food_typ}}</p>
+        </div>
+        <div class="item">
+            <h2>{{recipe.rezept_name}}</h2>
+        </div>
+    </a>
+
     <div class="item item-icon-left assertive">
-    <i class="icon ion-ios-heart"></i>
-      <p class="bold">Vegan</p>
+    <i class="icon ion-ios-heart-outline" ng-click="toggleMerkliste($event)"></i>
+      <p class="bold"></p>
       <p>kein Einkauf</p>
     </div>
-</a>
+</div>
 
 </ion-content>
 </ion-view>
