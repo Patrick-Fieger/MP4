@@ -22,12 +22,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .constant("conf", {
-        "api": "http://localhost:3000/",
-        "photo_url" : "http://kaizwier.de/MP4_imgs/"
+        "api": "http://46.101.241.120:3000/",
+        "photo_url" : "http://46.101.241.120:3000/photos/"
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  document.cookie ='id=84e2a6c6-8174-48d9-a67b-df9841a0fe33'
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -35,7 +34,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: "/tab",
     abstract: true,
     templateUrl: "templates/tabs.html"

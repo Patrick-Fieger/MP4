@@ -112,7 +112,7 @@ a{
 }
 
 .unit{
-	width: 75px;
+	width: 110px;
   	float: left;
   	font-weight: bolder;
 }
@@ -123,6 +123,39 @@ a{
 
 .range_padding{
 	padding: 0 30px; 
+}
+
+.amount{
+	-webkit-appearance: textfield !important;
+   -moz-appearance:    textfield !important;
+   appearance:         textfield !important;
+   border-top: 1px solid #ddd !important;
+   border-bottom: 1px solid #ddd !important;
+    height: 47px !important;
+    text-align: center !important;
+    font-weight: bolder !important;
+    font-size: 30px !important;
+    color: #ccc !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.button-bar .col{
+	padding: 0 !important
+}
+
+.button-bar .col a,
+.button-bar .col input{
+	width: 100% !important
+}
+
+.button-bar .col input{
+
 }
 
 

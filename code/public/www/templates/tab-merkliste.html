@@ -1,13 +1,12 @@
 <ion-view view-title="Merkliste">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/merkliste/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="recipe in recipes" type="item-text-wrap" href="#/tab/merkliste/{{recipe.rezept_show_id}}">
+        <img ng-src="{{recipe.rezept_bilder[0]}}">
+        <h2>{{recipe.rezept_name}}</h2>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+        <ion-option-button class="button-assertive" ng-click="remove({{recipe.rezept_show_id}})">
           Löschen
         </ion-option-button>
       </ion-item>

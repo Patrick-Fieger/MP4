@@ -1,20 +1,25 @@
-var Recipe = require('../models/recipe.js');
+var Recipe = require('../models/recipe')
+,	User = require('../models/user')
+, 	id = require('../../config/id')
 
 function inspiration (req,res){
-
-	console.log(req)
-
 	Recipe.find({},function(err,recipes){
-		var r = recipes
+		User.findById(id,function(err,user){
+			
+			var r = recipes
+			var back = {
+				favs : user.Food.fav,
+				recipes : []
+			};
+			var randomInt = makeUniqueRandom(recipes.length)
 
-		var back = [];
-		var randomInt = makeUniqueRandom(recipes.length)
+			for (var i = 0; i < 10; i++) {
+				back.recipes.push(r[randomInt[i]])
+			};
 
-		for (var i = 0; i < 10; i++) {
-			back.push(r[randomInt[i]])
-		};
-
-		res.send(back).status(200).end();
+			res.send(back).status(200).end();
+		})
+		
 	});
 }
 
@@ -32,6 +37,21 @@ function shuffle(o){
     return o;
 }
 
+
+function rezeptById(req,res){
+	var id = req.query.id
+	Recipe.findOne({rezept_show_id : id},function(err,recipe){
+		if(!err){
+			res.send(recipe).status(200).end();
+		}else{
+			res.status(500).end();
+		}
+	})
+}
+
+
+
 module.exports = {
-	inspiration : inspiration
+	inspiration : inspiration,
+	rezeptById : rezeptById
 }

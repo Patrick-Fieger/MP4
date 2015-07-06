@@ -1,33 +1,55 @@
-<ion-view view-title="{{recipe.heading}}">
+<ion-view view-title="{{recipe.rezept_name}}">
 <ion-content>
-<div class="img-spezial h200 pr" style="background-image:url(http://static.chefkoch-cdn.de/ck.de/cms-uploads/chefkoch/2786/Couscoussalat_PrintFeb_598.jpg)">
+<div class="img-spezial h200 pr" style="background-image:url({{recipe.rezept_bilder[0]}})">
     <div class="details_heading">
-        <h1>{{recipe.heading}}</h1>
-        <p>{{recipe.art}} - keine Einkäufe nötig</p>
+        <h1>{{recipe.rezept_name}}</h1>
+        <!-- <p>{{recipe.food_typ}} <span ng-show="recipe.food_typ">- </span>keine Einkäufe nötig</p> -->
     </div>
 </div>
 <div class="persons">
-    <p>Ich Koche für <span>{{amount}}</span> Person(en)</p>
+    <!-- <p>Ich Koche für <span>{{recipe.rezept_portionen}}</span> Person(en)</p> -->
+    <p>Portionen</p>
 </div>
-<div class="item range range-positive range_padding">
-    <input ng-model="amount" value="1" min="1" max="10" type="range" name="volume">
-</div>
-<div class="list" style="margin-top:50px">
+<!-- <div class="item range range-positive range_padding">
+    <input ng-model="recipe.rezept_portionen" min="1" max="12" type="range" name="volume">
+</div> -->
+
+<div class="button-bar bar-light" >
+        <div class="col col-33">
+          <a ng-click="minusPortionen()" class="button ion-ios-minus-outline icon"></a>
+        </div>
+
+        <div class="col col-33">
+        <input class="amount" ng-model="recipe.rezept_portionen" val="recipe.rezept_portionen" min="1" ng-change="checkNull()" type="number">
+        </div>
+        
+
+        <div class="col col-33">
+            <a ng-click="plusPortionen()" class="button ion-ios-plus-outline icon"></a>
+        </div>
+
+          
+    </div>
+
+<div class="list" style="margin-top:0px">
     <div class="item item-divider">
         Eigener Vorrat
     </div>
-    <div class="item">
-        <span class="unit">{{500 * amount}}g</span>
-        <p>Nudeln (Rigatoni o. ä.)</p>
+
+
+
+    <div class="item" ng-repeat="zutaten in recipe.rezept_zutaten">
+        <span class="unit" ng-show="zutaten.einheit">
+         {{zutaten.menge * recipe.rezept_portionen | setDecimal:2}} {{zutaten.einheit}}
+        </span>
+
+        <span class="unit" ng-show="!zutaten.einheit">&nbsp;</span>
+        
+        <p>{{zutaten.name}}</p>
     </div>
-    <div class="item">
-        <span class="unit">{{250 * amount}}g</span>
-        <p>Kirschtomate(n)</p>
-    </div>
-    <div class="item">
-        <span class="unit">{{50 * amount}}g</span>
-        <p>Oliven, schwarz, ohne Kerne</p>
-    </div>
+
+
+
     <div class="item item-divider">
         Community
     </div>
@@ -40,13 +62,10 @@
         <span class="unit">1 Bund</span>
         <p> Petasilie<br> <i class="italic">1 km entfernt</i></p>
     </div>
+
+
+
 </div>
 </ion-content>
-
-
-<!-- <ion-content ng-show="!rezepte">
-    <leaflet id="map" leaflet-container leaflet-fade-anim center="center" layers="layers" height="300px" width="100%"></leaflet>
-</ion-content> -->
-
 
 </ion-view>

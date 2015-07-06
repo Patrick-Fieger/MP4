@@ -5,5 +5,5 @@ var express = require('express')
   , routes = require('./app/routes')(app)
   , port = 3000
 
-  // app.use(express.static(__dirname + '/public')); 
+  app.use(express.static(__dirname + '/images')); 
   app.listen(port, function() {console.log('Express server listening on port ' + port);});
