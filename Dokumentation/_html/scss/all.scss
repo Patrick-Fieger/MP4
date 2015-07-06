@@ -75,6 +75,10 @@ p {
 	margin: 0 0 0 15px;
 	width: 151px;
 	height: 41px;
+
+	img {
+	    width: 80%;
+	}
 }
 .social-placeholder {
 	padding: 9px 0 0;
@@ -92,7 +96,7 @@ p {
 	left: 0;
 	width: 100%;
 	z-index: 99;
-	padding: 31px 0 32px;
+	padding: 21px 0 22px;
 	background: #fff;
 	box-shadow: 0 1px 1px rgba(196, 194, 202, 0.23);
 	-webkit-backface-visibility: hidden; /* Prevent Chrome bug because of on-scroll effect in other section */
@@ -115,6 +119,7 @@ p {
 	font-size: 0;
 	letter-spacing: -4px;
 	white-space: nowrap;
+	padding-top: 25px;
 
 	.nav-drop {
 		overflow: hidden;
@@ -961,6 +966,7 @@ p {
 		line-height: 1.3333333;
 		letter-spacing: 0;
 		font-weight: normal;
+		padding-top: 0;
 
 		.nav-drop {
 			display: block;
