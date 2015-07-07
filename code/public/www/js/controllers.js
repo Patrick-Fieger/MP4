@@ -131,6 +131,14 @@ angular.module('starter.controllers', [])
 	 }
    });
   }
+
+  $scope.cookRecipe = function(id){
+  	console.log('cook recipe: ' + id);
+  }
+
+
+
+
 })
 
 .controller('MerklisteCtrl', function($scope, conf, $ionicPopup, MerklistenService,$timeout) {
