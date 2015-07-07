@@ -68,6 +68,13 @@ p {
     max-width: 100%;
     height: auto; }
 
+.simpleclear::after {
+  content: "\00A0";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
 #header {
   position: fixed;
   top: 0;

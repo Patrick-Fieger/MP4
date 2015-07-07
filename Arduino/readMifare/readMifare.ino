@@ -77,6 +77,7 @@ void loop(void) {
     digitalWrite(13, HIGH);
     
     HttpClient client;
+    client.get("http://46.101.241.120:3000/arduino?id="+getParam);
     //client.get("http://kaz.kochab.uberspace.de/MP3/api/test?id="+getParam);
     while (client.available()) {
       char c = client.read();
