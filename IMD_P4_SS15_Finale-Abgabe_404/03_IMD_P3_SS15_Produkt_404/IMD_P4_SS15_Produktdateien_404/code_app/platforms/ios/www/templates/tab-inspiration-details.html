@@ -1,0 +1,71 @@
+<ion-view view-title="{{recipe.rezept_name}}">
+<ion-content>
+<div class="img-spezial h200 pr" style="background-image:url({{recipe.rezept_bilder[0]}})">
+    <div class="details_heading">
+        <h1>{{recipe.rezept_name}}</h1>
+        <!-- <p>{{recipe.food_typ}} <span ng-show="recipe.food_typ">- </span>keine Einkäufe nötig</p> -->
+    </div>
+</div>
+<div class="persons">
+    <!-- <p>Ich Koche für <span>{{recipe.rezept_portionen}}</span> Person(en)</p> -->
+    <p>Portionen</p>
+</div>
+<!-- <div class="item range range-positive range_padding">
+    <input ng-model="recipe.rezept_portionen" min="1" max="12" type="range" name="volume">
+</div> -->
+
+<div class="button-bar bar-light" >
+        <div class="col col-33">
+          <a ng-click="minusPortionen()" class="button ion-ios-minus-outline icon"></a>
+        </div>
+
+        <div class="col col-33">
+        <input class="amount" ng-model="recipe.rezept_portionen" val="recipe.rezept_portionen" min="1" ng-change="checkNull()" type="number">
+        </div>
+        
+
+        <div class="col col-33">
+            <a ng-click="plusPortionen()" class="button ion-ios-plus-outline icon"></a>
+        </div>
+
+          
+    </div>
+
+<div class="list" style="margin-top:0px">
+    <div class="item item-divider">
+        Eigener Vorrat
+    </div>
+
+
+
+    <div class="item" ng-repeat="zutaten in recipe.rezept_zutaten">
+        <span class="unit" ng-show="zutaten.einheit">
+         {{zutaten.menge * recipe.rezept_portionen | setDecimal:2}} {{zutaten.einheit}}
+        </span>
+
+        <span class="unit" ng-show="!zutaten.einheit">&nbsp;</span>
+        
+        <p>{{zutaten.name}}</p>
+    </div>
+
+
+
+    <div class="item item-divider">
+        Community
+    </div>
+    <div class="item holding_" on-tap="onHold($event)">
+        <span class="unit">200g</span>
+        <p> Schafskäse<br> <i class="italic">1 km entfernt</i></p>
+
+    </div>
+    <div class="item holding_" on-tap="onHold($event)">
+        <span class="unit">1 Bund</span>
+        <p> Petasilie<br> <i class="italic">1 km entfernt</i></p>
+    </div>
+
+
+
+</div>
+</ion-content>
+
+</ion-view>

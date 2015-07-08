@@ -1,0 +1,40 @@
+<ion-view view-title="Inspiration">
+
+<ion-content class="padding">
+
+<ion-refresher
+  pulling-text="Pull to refresh..."
+  on-refresh="doRefresh()">
+</ion-refresher>
+
+<label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search">
+</label>
+<div class="margin">
+    <select class="col big_select">
+        <option selected>Schnelle & einfache Küche</option>
+        <option>Green</option>
+        <option>Red</option>
+    </select>
+</div>
+
+<div class="list card spezial-col" ng-repeat="recipe in recipes">
+    <a href="#/tab/inspiration/{{recipe.rezept_show_id}}">
+        <div class="item item-image img-spezial" style="background-image:url({{recipe.rezept_bilder[0]}})">
+            <p class="food_typ" ng-show="recipe.food_typ">{{recipe.food_typ}}</p>
+        </div>
+        <div class="item">
+            <h2>{{recipe.rezept_name}}</h2>
+        </div>
+    </a>
+
+    <div class="item item-icon-left assertive">
+    <i class="icon" ng-class="{'ion-ios-heart-outline' : !recipe.fav, 'ion-ios-heart' : recipe.fav}" ng-click="toggleMerkliste($event,{{recipe.rezept_show_id}})"></i>
+      <p class="bold"></p>
+      <p>kein Einkauf</p>
+    </div>
+</div>
+
+</ion-content>
+</ion-view>

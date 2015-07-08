@@ -1,0 +1,87 @@
+<ion-view view-title="{{recipe.rezept_name}}">
+<ion-content>
+<div class="img-spezial h200 pr" style="background-image:url({{recipe.rezept_bilder[0]}})">
+    <div class="details_heading">
+        <h1>{{recipe.rezept_name}}</h1>
+        <!-- <p>{{recipe.food_typ}} <span ng-show="recipe.food_typ">- </span>keine Einkäufe nötig</p> -->
+    </div>
+</div>
+<div class="persons">
+    <!-- <p>Ich Koche für <span>{{recipe.rezept_portionen}}</span> Person(en)</p> -->
+    <p>Portionen</p>
+</div>
+<!-- <div class="item range range-positive range_padding">
+    <input ng-model="recipe.rezept_portionen" min="1" max="12" type="range" name="volume">
+</div> -->
+
+<button class="button button-light rounded" ng-click="cookRecipe(recipe.rezept_show_id)">
+  <i class="icon-c"></i> Rezept kochen
+</button>
+<div class="button-bar bar-light rounded portions">
+    <div class="col col-33">
+      <a ng-click="minusPortionen()" class="button ion-ios-minus-outline icon"></a>
+    </div>
+
+    <div class="col col-33">
+    <input class="amount" ng-model="recipe.rezept_portionen" val="recipe.rezept_portionen" min="1" ng-change="checkNull()" type="tel">
+    </div>
+    
+
+    <div class="col col-33">
+        <a ng-click="plusPortionen()" class="button ion-ios-plus-outline icon"></a>
+    </div>
+</div>
+
+<div class="list" style="margin-top:20px;float: left;
+  width: 100%;">
+    <div class="item item-divider">
+        Eigener Vorrat
+    </div>
+
+    <div class="item" ng-repeat="zutaten in recipe.rezept_zutaten">
+        <span class="unit" ng-show="zutaten.einheit">
+         {{zutaten.menge * recipe.rezept_portionen | setDecimal:2}} {{zutaten.einheit}}
+        </span>
+
+        <span class="unit" ng-show="!zutaten.einheit">&nbsp;</span>
+        
+        <p>{{zutaten.name}}</p>
+    </div>
+    <div class="item item-divider">
+        Supermarkt
+    </div>
+
+    <div class="item holding_" ng-repeat="kaufen in einkaufen">
+        <span class="unit" ng-show="kaufen.einheit">{{kaufen.menge * recipe.rezept_portionen | setDecimal:2}} {{kaufen.einheit}}</span>
+        <span class="unit" ng-show="!kaufen.einheit">&nbsp;</span>
+
+        <p> {{kaufen.name}}</p>
+
+    </div>
+
+    <div class="item item-divider">
+        Community
+    </div>
+    <div class="item holding_" ng-repeat="fehlt in abholen">
+        <span class="unit" ng-show="fehlt.einheit">{{fehlt.menge * recipe.rezept_portionen | setDecimal:2}} {{fehlt.einheit}}</span>
+        <span class="unit" ng-show="!fehlt.einheit">&nbsp;</span>
+
+        <p> {{fehlt.name}}<br> <i class="italic">{{abstand[$index]}}m entfernt</i></p>
+
+    </div>
+    <!-- <div class="item holding_">
+        <span class="unit">1 Bund</span>
+        <p> Petasilie<br> <i class="italic">1 km entfernt</i></p>
+    </div> -->
+</div>
+
+<div class="rezeptbeschreibung">
+    <h1 style="font-size: 20px;text-align: center;">Zubereitung</h1>
+    <p>{{recipe.rezept_zubereitung}}</p>
+</div>
+
+
+
+</ion-content>
+
+</ion-view>
