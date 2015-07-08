@@ -19,6 +19,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleLightContent();
     }
 
+    /**
+     * Interval um zu checken ob ein Request des Arduinos schon reingekommen ist
+     */
+
     var interval = setInterval(checkEinkauf, 1000); // 2000 ms = start after 2sec 
     function checkEinkauf() {
       $http.get(conf.api + 'einkauf').success(function(data, status, headers, config){
@@ -45,7 +49,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
 
-
+    /*
+      Faken der Einkaufsliste und des Inventars
+     */
     $rootScope.rest = [
       {  
          "id":"23",
@@ -362,8 +368,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/inspiration');
-
-
-
-
 });

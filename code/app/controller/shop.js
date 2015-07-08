@@ -1,3 +1,8 @@
+/**
+ * Shop-Controller
+ * Checkt ob ein Request vom Arduino gekommen ist oder nicht
+ * 
+ */
 var i = 0;
 var x = 0;
 

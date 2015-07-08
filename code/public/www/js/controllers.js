@@ -1,15 +1,18 @@
 angular.module('starter.controllers', [])
-
+/**
+ * Inspirations-Controller
+ * Zeigt dem Nutzer Inspirationen
+ */
 .controller('InspirationCtrl', function($scope,$timeout,InspirationService,conf,$http,MerklistenService) {
-
   InspirationService.getInspiration().success(buildInspiration);
 
+  /**
+   * Funktion, wenn "Pull to Refresh" ausgeführt wurde
+   */
   $scope.doRefresh = function() {
-    InspirationService.getInspiration().success(buildInspiration);
-    $scope.$broadcast('scroll.refreshComplete');
+	InspirationService.getInspiration().success(buildInspiration);
+	$scope.$broadcast('scroll.refreshComplete');
   };
-
-
 
   function buildInspiration (data, status, headers, config) {
 	var recipes = data.recipes;
@@ -31,7 +34,9 @@ angular.module('starter.controllers', [])
 	$scope.favs = data.favs;
   }
 
-
+  /**
+   * Funktion zum abspeichern in die Merkliste oder löschen aus der Merkliste
+   */
   $scope.toggleMerkliste = function($event,id){
 	MerklistenService.toggleMerkliste({id : id}).success(function(){
 	  if($scope.favs.indexOf(id) > -1){
@@ -48,82 +53,38 @@ angular.module('starter.controllers', [])
 
   $scope.$watch('favs', function() {
 	if($scope.favs){
-
 	  for (var i = 0; i < $scope.recipes.length; i++) {
-
 		if($scope.favs.indexOf(parseInt($scope.recipes[i].rezept_show_id)) > -1){
 		  $scope.recipes[i].fav = true
-		  
 		}else{
 		  $scope.recipes[i].fav = false
 		}
 	  };
 	}
   },true);
-
 })
 
+/**
+ *  Inspirations-Detail-Controller
+ *  Zeigt das Rezept an
+ */
 .controller('InspirationDetailCtrl', function($scope,$stateParams,RezeptService,conf,$ionicActionSheet) {
   var id = $stateParams.recepiId;
   $scope.abstand = [parseInt(Math.random()*100) + 100 , parseInt(Math.random()*100) + 100];
 
   $scope.abholen = [
-  	{  
-         "id":"25",
-         "name":"Tomate(n)",
-         "eigenschaft":", gewürfelt",
-         "cominfo":"1",
-         "ist_basic":"0",
-         "menge":"2",
-         "einheit":"kleine",
-         "target":"_blank",
-         "menge_berechnet":2,
-         "has_additional_info":true
-      },
-      {  
-         "id":"375",
-         "name":"Paprika",
-         "eigenschaft":", rot, gewürfelt",
-         "cominfo":"",
-         "ist_basic":"0",
-         "menge":"1",
-         "einheit":"Stück",
-         "menge_berechnet":1,
-         "has_additional_info":false
-      }
+	{"id":"25","name":"Tomate(n)","eigenschaft":", gewürfelt","cominfo":"1","ist_basic":"0","menge":"2","einheit":"kleine","target":"_blank","menge_berechnet":2,"has_additional_info":true},
+	{"id":"375","name":"Paprika","eigenschaft":", rot, gewürfelt","cominfo":"","ist_basic":"0","menge":"1","einheit":"Stück","menge_berechnet":1,"has_additional_info":false}
   ];
 
   $scope.einkaufen = [
-  	{  
-         "id":"6059",
-         "name":"Spaghetti",
-         "eigenschaft":"",
-         "cominfo":"",
-         "ist_basic":"0",
-         "menge":"180",
-         "einheit":"g",
-         "menge_berechnet":180,
-         "has_additional_info":false
-      },
-      {  
-         "id":"80",
-         "name":"Tomatenmark",
-         "eigenschaft":"",
-         "cominfo":"",
-         "ist_basic":"0",
-         "menge":"1.500",
-         "einheit":"EL",
-         "menge_berechnet":1.5,
-         "has_additional_info":false
-      }
+	{"id":"6059","name":"Spaghetti","eigenschaft":"","cominfo":"","ist_basic":"0","menge":"180","einheit":"g","menge_berechnet":180,"has_additional_info":false},
+	{"id":"80","name":"Tomatenmark","eigenschaft":"","cominfo":"","ist_basic":"0","menge":"1.500","einheit":"EL","menge_berechnet":1.5,"has_additional_info":false}
   ]
 
   RezeptService.rezeptById(id).success(buildRezeptView)
-  
-
   function buildRezeptView (data, status, headers, config){
 	var recipe = data
-
 	var path = recipe.rezept_bilder[0];
 	
 	if(recipe.rezept_tags.indexOf("vegan") > -1 || recipe.rezept_tags.indexOf("Vegan") > -1){
@@ -144,47 +105,36 @@ angular.module('starter.controllers', [])
 		var id = recipe.rezept_zutaten[i].id
 		if(id == "25" || id == "375" || id == "6059" || id == "80"){
 			recipe.rezept_zutaten.splice(i, 1);
-		}	
+		}    
 	};
 
-
-	// for (var i = 0; i < 2; i++) {
-	// 	var zufall = parseInt(Math.random(recipe.rezept_zutaten.length - 1) * 10 ) 
-	// 	$scope.abholen.push(recipe.rezept_zutaten[zufall])
-	// 	recipe.rezept_zutaten.splice(zufall, 1);
-	// };
-
-
 	recipe.rezept_portionen = parseInt(recipe.rezept_portionen);
-
 	$scope.recipe = recipe;
-
   }
 
   $scope.plusPortionen = function(){
-  	$scope.recipe.rezept_portionen = parseInt($scope.recipe.rezept_portionen) + 1;
+	$scope.recipe.rezept_portionen = parseInt($scope.recipe.rezept_portionen) + 1;
   }
 
   $scope.minusPortionen = function(){
-  	var min = $scope.recipe.rezept_portionen;
+	var min = $scope.recipe.rezept_portionen;
 
-  	if(--min !== 0){
-  		$scope.recipe.rezept_portionen = parseInt($scope.recipe.rezept_portionen) - 1;
-  	}
-  	
+	if(--min !== 0){
+		$scope.recipe.rezept_portionen = parseInt($scope.recipe.rezept_portionen) - 1;
+	}
+	
   }
 
-
   $scope.checkNull = function(){
-  	if($scope.recipe.rezept_portionen == undefined){
-  		//$scope.recipe.rezept_portionen = 1
-  	}
+	if($scope.recipe.rezept_portionen == undefined){
+		//$scope.recipe.rezept_portionen = 1
+	}
   }
 
   $scope.cookRecipe = function(id){
 	var hideSheet = $ionicActionSheet.show({
 	  buttons: [
-	    { text: 'Lebensmittel zum Einkauf hinzufügen' }
+		{ text: 'Lebensmittel zum Einkauf hinzufügen' }
 	  ],
 	  titleText: 'Rezept kochen',
 	  cancelText: 'Schließen',
@@ -192,16 +142,17 @@ angular.module('starter.controllers', [])
 	
 	  },
 	  buttonClicked: function(index) {
-	    return true;
+		return true;
 	  }
 	});
   }
-
-
-
-
 })
 
+
+/**
+ * Merklisten-Controller
+ * Zeigt die Merkliste in List-Form an
+ */
 .controller('MerklisteCtrl', function($scope, conf, $ionicPopup, MerklistenService,$timeout) {
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -212,24 +163,17 @@ angular.module('starter.controllers', [])
 	$scope.recipes = [];
   });
   
-
   function buildMerkliste(data, status, headers, config){
 	var recipes = data;
-
-	console.log(recipes)
-
 	for (var i = 0; i < recipes.length; i++) {
 	  var path = recipes[i].rezept_bilder[0];
-
 	  if(path){
 		recipes[i].rezept_bilder[0] = conf.photo_url + recipes[i].rezept_show_id + '/' +  path.substring(path.lastIndexOf("/") + 1, path.length);
 	  }
 	};
 	
 	$scope.recipes = recipes;
-	
   }
-  
   
   $scope.remove = function(id) {
    var confirmPopup = $ionicPopup.confirm({
@@ -244,8 +188,6 @@ angular.module('starter.controllers', [])
    });
   }
 
-
-
   function removeItemFromList (id) {
 	MerklistenService.toggleMerkliste({id : id}).success(function(){
 	  for (var i = 0; i < $scope.recipes.length; i++) {
@@ -256,67 +198,40 @@ angular.module('starter.controllers', [])
 	});
   }
 
-  
-
   $scope.$watch('recipes', function() {
 	if($scope.recipes && $scope.recipes.length == 0){
 	  // Hier sollte dann stehen das man noch keine Merklisten-Items hat
 	}
   },true);
-
-})
-
-
-.controller('WarenCtrl', function($scope, $stateParams) {
-  $scope.$on('$ionicView.enter', function(e) {
-
-  });
 })
 
 .controller('InventarCtrl', function($scope, $stateParams,$ionicPopup) {
   $scope.share = function(){
-	showSimpleAlert('Lebensmittel erfolgreich geteilt! :)',$ionicPopup)
+	showSimpleAlert('Lebensmittel erfolgreich geteilt!',$ionicPopup)
   }
-
 
   $scope.remove = function(){
 	showSimpleAlert('Lebensmittel erfolgreich gelöscht!',$ionicPopup)
   }
-
 })
 
-
-.controller('EinkaufslisteCtrl', function($scope) {
-
-})
-
-.controller('NachrichtenCtrl', function($scope) {
-  
-})
-
-
-.controller('NachrichtenDetailsCtrl', function($scope) {
-  
-})
-
-
+function showSimpleAlert(text,$ionicPopup){
+  var alertPopup = $ionicPopup.alert({
+	 template: text
+  });
+}
 
 .controller('AccountCtrl', function($scope,AccountService,conf) {
  AccountService.profil().success(BuildAccountView)
 
  function BuildAccountView(data, status, headers, config){
- 	var profil = data
- 	profil.Info.avatar = conf.photo_url + profil.Info.avatar
-
-
- 	$scope.profil = profil
+	var profil = data
+	profil.Info.avatar = conf.photo_url + profil.Info.avatar
+	$scope.profil = profil
  }
+})
 
-});
-
-function showSimpleAlert(text,$ionicPopup){
-  var alertPopup = $ionicPopup.alert({
-	 // title: 'Don\'t eat that!',
-	 template: text
-  });
-}
+.controller('WarenCtrl', function($scope) {})
+.controller('EinkaufslisteCtrl', function($scope) {})
+.controller('NachrichtenCtrl', function($scope) {})
+.controller('NachrichtenDetailsCtrl', function($scope) {})

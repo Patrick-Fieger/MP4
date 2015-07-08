@@ -1,3 +1,6 @@
+/*
+	Schema zur Abspeicherung eines Angebotes
+ */
 var mongoose = require('mongoose'),
 	uuid = require('uuid')
 

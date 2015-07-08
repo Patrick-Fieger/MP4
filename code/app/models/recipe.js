@@ -1,3 +1,7 @@
+/*
+	Schema zur Abspeicherung eines Rezeptes
+ */
+
 var mongoose = require('mongoose'),
 	uuid = require('uuid')
 

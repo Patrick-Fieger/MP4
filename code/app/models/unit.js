@@ -1,3 +1,6 @@
+/*
+	Schema zur Abspeicherung einer Einheit
+ */
 var mongoose = require('mongoose'),
 	uuid = require('uuid')
 

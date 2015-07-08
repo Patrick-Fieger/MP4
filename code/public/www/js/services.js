@@ -1,5 +1,8 @@
 angular.module('starter.services', [])
 
+/**
+ * Service zum Anzeigen der Inspirationen
+ */
 .service('InspirationService', function($http,conf) {
   var getInspiration = function(){
     return $http.get(conf.api + 'inspiration')
@@ -10,6 +13,9 @@ angular.module('starter.services', [])
   }
 })
 
+/**
+ * Service zum Anzeigen eines bestimmten Rezepts nacht ID
+ */
 .service('RezeptService', function($http,conf) {
   var rezeptById = function(id){
     return $http.get(conf.api + 'recipe?id='+id)
@@ -20,6 +26,9 @@ angular.module('starter.services', [])
   }
 })
 
+/**
+ * Service zum Hinzufügen,Löschen und Anzeigen von Rezepten zur Merkliste
+ */
 .service('MerklistenService', function($http,conf) {
   var toggleMerkliste = function(data){
     return $http.post(conf.api + 'togglemerkliste', data)
@@ -35,8 +44,10 @@ angular.module('starter.services', [])
   }
 })
 
+/**
+ * Service zum abholen des Profiles
+ */
 .service('AccountService', function($http,conf) {
-
   var profil = function(){
     return $http.get(conf.api + 'profil') 
   }
@@ -46,6 +57,9 @@ angular.module('starter.services', [])
   }
 })
 
+/**
+ * Filter zum formatieren von Kommazahlen
+ */
 .filter('setDecimal', function ($filter) {
     return function (input, places) {
         if (isNaN(input)) return 0;

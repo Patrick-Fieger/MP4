@@ -1,3 +1,7 @@
+/**
+ * Express config
+ */
+
    express = require('express')
  , morgan = require('morgan')
  , bodyParser = require('body-parser')

@@ -1,3 +1,7 @@
+/**
+ * Http-Request verteilung auf die verschiedenen Controller
+ */
+
 var recipe = require('./controller/recipe')
 ,	user = require('./controller/user')
 ,	shop = require('./controller/shop')

@@ -1,3 +1,7 @@
+/**
+ * Server Config
+ */
+
 var express = require('express')
   , app = express()
   , dbconfig = require('./config/database')

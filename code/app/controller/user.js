@@ -1,3 +1,9 @@
+/*
+	User-Controller
+	Speichert Rezepte in die Merkliste
+	Zeigt das Profil an
+ */
+
 var User = require('../models/user')
 ,	id = require('../../config/id')
 ,	Recipe = require('../models/recipe')

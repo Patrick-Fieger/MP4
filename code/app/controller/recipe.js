@@ -1,3 +1,9 @@
+/**
+ * Recipe-Controller
+ * Sucht dem User Inspirationen
+ * Findet Rezepte bei ihrer ID und zeigt sie an
+ */
+
 var Recipe = require('../models/recipe')
 ,	User = require('../models/user')
 , 	id = require('../../config/id')

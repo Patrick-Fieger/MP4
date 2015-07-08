@@ -1,3 +1,7 @@
+/*
+	Schema zur Abspeicherung eines Lebensmittels
+ */
+
 var mongoose = require('mongoose'),
 	uuid = require('uuid')
 
