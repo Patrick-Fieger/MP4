@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>deligoo - Internet of Things - H-DA - Interaktionskonzept</title>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="MP4/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="MP4/assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="MP4/assets/css/all.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,300|Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body class="sub">
+
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="logo"><a href="#"><img src="MP4/assets/images/logo.svg" alt="Deligoo"></a></div>
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+					
+					<div class="nav-drop">
+					<ul><li class="first"><a href="index.html" title="Home" >Home</a></li>
+<li><a href="research.html" title="Research" >Research</a></li>
+<li class="active"><a href="konzept.html" title="Konzept" >Konzept</a></li>
+<li><a href="management.html" title="Management" >Management</a></li>
+<li class="last"><a href="technik.html" title="Technik" >Technik</a></li>
+</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual-container visual autoHeight">
+		<div class="visual-area">
+			<div class="container">
+				<h2>Interaktionskonzept</h2>
+			</div>
+			<img src="MP4/assets/images/img-decor-02.jpg" height="764" width="1380" alt="" class="bg-stretch">
+		</div>
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-sm-8 content">
+					<h3>Kontext</h3>
+<p>Wie bereits aus dem &uuml;bergeordneten Kapitel &bdquo;Konzept&ldquo; hervorging fokussieren wir prim&auml;r drei Anwendungsf&auml;lle: Inspiration suchen, Lebensmittel inserieren und einen &Uuml;berblick &uuml;ber die eigenen Lebensmittel erhalten.</p>
+<p>Zu unseren Anwendungsf&auml;llen kommen sehr variable Nutzungskontexte. Diese werden zudem durch situative Bedingungen wie den Ort, Zeit und Lichtverh&auml;ltnisse beeinflusst. Unterst&uuml;tzt durch unser bestrebtes Ziel, den Sharingvorgang von Lebensmitteln zu unterst&uuml;tzten und so einfach wie m&ouml;glich zu gestalten, impliziert dies weitere Anforderung an die Gestaltung und die Anforderungen des Nutzers. Diese werden wir in den nachfolgenden Kapiteln aufgreifen und n&auml;her behandeln.</p>
+<h3>Navigationsstruktur</h3>
+<p>Damit wir selbst Nutzer mit geringer technischer Versiertheit bei der Nutzung des Systems unterst&uuml;tzten k&ouml;nnen, ist eine eing&auml;ngige gut strukturierte Navigation n&ouml;tig.</p>
+<p><strong><img src="MP4/assets/images/struktur.jpg" alt="Struktur" width="790" height="231" /><br /></strong></p>
+<p>Auf die eine detaillierte Darstellung aller m&ouml;glichen Operationen auf allen Seiten wurde im Zuge der &Uuml;bersichtlichkeit verzichtet. Zentraler Kernaspekt in der Applikation stellt die Inspirationsansicht dar. Diese generiert aus den Inventaren Verwertungsvorschl&auml;ge. Die sich an den Inspirationsfeed anschlie&szlig;ende Detailansicht der Rezepte dient der &Uuml;bersicht und dem weiteren Ablauf. Von der Detailansicht aus kann man ein Rezept zeitgleich vormerken und dessen Lebensmittel auf die Einkaufsliste setzen lassen. Vorgemerkte Rezepte findet man im zweiten Abschnitt &bdquo;Merkliste&ldquo; wieder. Diese beherbergt eine Liste der favorisierten und zum Kochen vorgemerkten Rezepte. Von dieser Ansicht gelangt man in eine Detailansicht, die sich mit der des Inspirationsfeeds deckt.</p>
+<p>Ein essentieller Teil des Systems liegt in der Verwaltung der Lebensmittel. Diese befindet sich unter dem Punkt Warenmanagement. Nur mit einem gef&uuml;llten virtuellen K&uuml;hlschrank ist ein Sharing, eine Verwertung von Resten oder ein Kochen ohne in den Supermarkt gehen zu m&uuml;ssen m&ouml;glich. In der zweiten Hierarchie unterteilt sich dieser Punkt in die Inventarliste, die s&auml;mtliche Lebensmittel beinhaltet, die der Nutzer bereits in seinem Besitz hat, und die Einkaufsliste, die die Lebensmittel beinhaltet, die bei Mitgliedern abgeholt oder im Supermarkt eingekauft werden m&uuml;ssen.</p>
+<p>Der vierte Strukturpunkt dient f&uuml;r Einstellungen, Bearbeitungsfunktionen und eine &Uuml;bersicht f&uuml;r Notifications bzw. Nachrichten. Das eigene Profil kann eingesehen und abge&auml;ndert werden. &Auml;nderungen wie zum Beispiel die Synchronisation der Lebensmittel aus dem Supermarkt oder Interaktionen zwischen Nutzern werden an dieser Stelle aufgezeigt.</p>
+<h3>UI Komponenten</h3>
+<p>Es war uns wichtig den User nicht zu verwirren und ihm das Gef&uuml;hl zu geben diese App bereits schon zu kennen. Wir haben ein Interface gestaltet ohne viel Schn&ouml;rkel und tiefe Hierarchien. Das erm&ouml;glicht dem User schnell zwischen verschiedenen Situationen und Screens zu wechseln ohne den &Uuml;berblick zu verlieren.</p>
+<p>Die schnelle Lernkurve bei der Benutzung der App zeichnet sich durch gewohnte Komponenten wie einer Tab-Bar, Listen-Icons und vielem Mehr aus. Die Tab-Bar besteht hierbei aus drei Unterpunkten (Inspiration, Merkliste, Warenmanagement). Au&szlig;erdem haben wir ein &bdquo;Pull to Refresh&ldquo; Funktion eingebaut um neue Inspirationen zu laden. Dies kennen wir auch schon aus den g&auml;ngigen Apps von Facebook und Twitter.</p>
+<p>Die Listenelemente sind im Standard-Look gehalten. Pfeile werden als Indikator f&uuml;r weitere Informationen verwendet. Das Draggen von rechts nach links er&ouml;ffnet uns die M&ouml;glichkeiten des Teilens, L&ouml;schens oder weitere Funktionen auszuf&uuml;hren. Ein Infinite Scrolling zu implementieren w&auml;re eventuell hilfreich, sieht unser aktuelles Konzept aber noch nicht vor.</p>
+				</div>
+				<div class="col-sm-3 col-sm-offset-1">
+				  <div class="sidebar-module">
+				  <h3>Konzept</h3>
+					<ul class="nav nav-pills nav-stacked"><li class="first"><a href="iot.html" title="Internet of Things" >Internet of Things</a></li>
+<li><a href="anforderungen.html" title="Anforderungen" >Anforderungen</a></li>
+<li class="active"><a href="interaktionskonzept.html" title="Interaktionskonzept" >Interaktionskonzept</a></li>
+<li class="last"><a href="gestaltung.html" title="Gestaltung" >Gestaltung</a></li>
+</ul>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="container">
+			<div class="footer-holder">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="logo"><a href="#"><img src="MP4/assets/images/logo.svg" alt=""></a></div>
+						<p>Ein Projekt von Nadine Mlakar, Patrick Fieger, Arif Basaran und Kai Zwier</p>
+					</div>
+					<div class="col-md-6">
+							<h4>Navigation</h4>
+						<ul><li class="first"><a href="index.html" title="Home" >Home</a></li>
+<li><a href="research.html" title="Research" >Research</a></li>
+<li><a href="konzept.html" title="Konzept" >Konzept</a></li>
+<li><a href="management.html" title="Management" >Management</a></li>
+<li class="last active"><a href="technik.html" title="Technik" >Technik</a></li>
+</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+<script src="MP4/assets/js/jquery-1.11.2.min.js"></script>
+<script src="MP4/assets/js/bootstrap.js"></script>
+<script src="MP4/assets/js/jquery.main.js"></script>
+</body>
+</html>
