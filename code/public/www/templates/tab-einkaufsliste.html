@@ -2,12 +2,31 @@
 <ion-view view-title="Einkaufsliste" hide-nav-bar="false">
 <ion-content>
   <ion-list>
-    <div class="item item-remove-animate item-checkbox" >
+  	<div class="item item-divider">
+        Supermarkt
+    </div>
+    <div class="item item-remove-animate item-checkbox" ng-repeat="key in abholen">
       <label class="checkbox">
        <input type="checkbox">
      </label>
-     Lebensmittel 123
+     {{key.name}}
     </div>
+
+
+    <div class="item item-divider">
+        Community
+    </div>
+    <div class="item item-remove-animate item-checkbox" ng-repeat="key in einkaufen">
+      <label class="checkbox">
+       <input type="checkbox">
+     </label>
+     {{key.menge}} {{key.einheit}} {{key.name}}
+    </div>
+
+    
+
+
+
   </ion-list>
 </ion-content>
 </ion-view>

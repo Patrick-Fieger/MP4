@@ -23,7 +23,7 @@
     </div>
 
     <div class="col col-33">
-    <input class="amount" ng-model="recipe.rezept_portionen" val="recipe.rezept_portionen" min="1" ng-change="checkNull()" type="number">
+    <input class="amount" ng-model="recipe.rezept_portionen" val="recipe.rezept_portionen" min="1" ng-change="checkNull()" type="tel">
     </div>
     
 
@@ -32,12 +32,11 @@
     </div>
 </div>
 
-<div class="list" style="margin-top:0px">
+<div class="list" style="margin-top:20px;float: left;
+  width: 100%;">
     <div class="item item-divider">
         Eigener Vorrat
     </div>
-
-
 
     <div class="item" ng-repeat="zutaten in recipe.rezept_zutaten">
         <span class="unit" ng-show="zutaten.einheit">
@@ -48,25 +47,41 @@
         
         <p>{{zutaten.name}}</p>
     </div>
+    <div class="item item-divider">
+        Supermarkt
+    </div>
 
+    <div class="item holding_" ng-repeat="kaufen in einkaufen">
+        <span class="unit" ng-show="kaufen.einheit">{{kaufen.menge * recipe.rezept_portionen | setDecimal:2}} {{kaufen.einheit}}</span>
+        <span class="unit" ng-show="!kaufen.einheit">&nbsp;</span>
 
+        <p> {{kaufen.name}}</p>
+
+    </div>
 
     <div class="item item-divider">
         Community
     </div>
-    <div class="item holding_" on-tap="onHold($event)">
-        <span class="unit">200g</span>
-        <p> Schafskäse<br> <i class="italic">1 km entfernt</i></p>
+    <div class="item holding_" ng-repeat="fehlt in abholen">
+        <span class="unit" ng-show="fehlt.einheit">{{fehlt.menge * recipe.rezept_portionen | setDecimal:2}} {{fehlt.einheit}}</span>
+        <span class="unit" ng-show="!fehlt.einheit">&nbsp;</span>
+
+        <p> {{fehlt.name}}<br> <i class="italic">{{abstand[$index]}}m entfernt</i></p>
 
     </div>
-    <div class="item holding_" on-tap="onHold($event)">
+    <!-- <div class="item holding_">
         <span class="unit">1 Bund</span>
         <p> Petasilie<br> <i class="italic">1 km entfernt</i></p>
-    </div>
-
-
-
+    </div> -->
 </div>
+
+<div class="rezeptbeschreibung">
+    <h1 style="font-size: 20px;text-align: center;">Zubereitung</h1>
+    <p>{{recipe.rezept_zubereitung}}</p>
+</div>
+
+
+
 </ion-content>
 
 </ion-view>

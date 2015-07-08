@@ -10,10 +10,9 @@ angular.module('starter.controllers', [])
   };
 
 
+
   function buildInspiration (data, status, headers, config) {
 	var recipes = data.recipes;
-
-	console.log(recipes)
 
 	for (var i = 0; i < recipes.length; i++) {
 	  var path = recipes[i].rezept_bilder[0];
@@ -66,12 +65,65 @@ angular.module('starter.controllers', [])
 
 .controller('InspirationDetailCtrl', function($scope,$stateParams,RezeptService,conf,$ionicActionSheet) {
   var id = $stateParams.recepiId;
+  $scope.abstand = [parseInt(Math.random()*100) + 100 , parseInt(Math.random()*100) + 100];
+
+  $scope.abholen = [
+  	{  
+         "id":"25",
+         "name":"Tomate(n)",
+         "eigenschaft":", gewürfelt",
+         "cominfo":"1",
+         "ist_basic":"0",
+         "menge":"2",
+         "einheit":"kleine",
+         "target":"_blank",
+         "menge_berechnet":2,
+         "has_additional_info":true
+      },
+      {  
+         "id":"375",
+         "name":"Paprika",
+         "eigenschaft":", rot, gewürfelt",
+         "cominfo":"",
+         "ist_basic":"0",
+         "menge":"1",
+         "einheit":"Stück",
+         "menge_berechnet":1,
+         "has_additional_info":false
+      }
+  ];
+
+  $scope.einkaufen = [
+  	{  
+         "id":"6059",
+         "name":"Spaghetti",
+         "eigenschaft":"",
+         "cominfo":"",
+         "ist_basic":"0",
+         "menge":"180",
+         "einheit":"g",
+         "menge_berechnet":180,
+         "has_additional_info":false
+      },
+      {  
+         "id":"80",
+         "name":"Tomatenmark",
+         "eigenschaft":"",
+         "cominfo":"",
+         "ist_basic":"0",
+         "menge":"1.500",
+         "einheit":"EL",
+         "menge_berechnet":1.5,
+         "has_additional_info":false
+      }
+  ]
 
   RezeptService.rezeptById(id).success(buildRezeptView)
   
 
   function buildRezeptView (data, status, headers, config){
 	var recipe = data
+
 	var path = recipe.rezept_bilder[0];
 	
 	if(recipe.rezept_tags.indexOf("vegan") > -1 || recipe.rezept_tags.indexOf("Vegan") > -1){
@@ -88,7 +140,22 @@ angular.module('starter.controllers', [])
 	  recipe.rezept_zutaten[i].menge = recipe.rezept_zutaten[i].menge_berechnet / parseInt(recipe.rezept_portionen);
 	};
 
-	recipe.rezept_portionen = parseInt(recipe.rezept_portionen)
+	for (var i = 0; i < recipe.rezept_zutaten.length; i++) {
+		var id = recipe.rezept_zutaten[i].id
+		if(id == "25" || id == "375" || id == "6059" || id == "80"){
+			recipe.rezept_zutaten.splice(i, 1);
+		}	
+	};
+
+
+	// for (var i = 0; i < 2; i++) {
+	// 	var zufall = parseInt(Math.random(recipe.rezept_zutaten.length - 1) * 10 ) 
+	// 	$scope.abholen.push(recipe.rezept_zutaten[zufall])
+	// 	recipe.rezept_zutaten.splice(zufall, 1);
+	// };
+
+
+	recipe.rezept_portionen = parseInt(recipe.rezept_portionen);
 
 	$scope.recipe = recipe;
 
@@ -114,26 +181,20 @@ angular.module('starter.controllers', [])
   	}
   }
 
-
-
-  $scope.onHold = function(e){
-	var hideSheet = $ionicActionSheet.show({
-	 buttons: [
-	   { text: 'Ich möchte dieses Produkt abholen!' }
-	 ],
-	 cancelText: 'Schließen',
-	 cancel: function() {
-	 
-	 },
-	 buttonClicked: function(index) {
-	   angular.element(e.target).parent().addClass('active')
-	   return true;
-	 }
-   });
-  }
-
   $scope.cookRecipe = function(id){
-  	console.log('cook recipe: ' + id);
+	var hideSheet = $ionicActionSheet.show({
+	  buttons: [
+	    { text: 'Lebensmittel zum Einkauf hinzufügen' }
+	  ],
+	  titleText: 'Rezept kochen',
+	  cancelText: 'Schließen',
+	  cancel: function() {
+	
+	  },
+	  buttonClicked: function(index) {
+	    return true;
+	  }
+	});
   }
 
 
@@ -154,6 +215,9 @@ angular.module('starter.controllers', [])
 
   function buildMerkliste(data, status, headers, config){
 	var recipes = data;
+
+	console.log(recipes)
+
 	for (var i = 0; i < recipes.length; i++) {
 	  var path = recipes[i].rezept_bilder[0];
 
@@ -170,7 +234,8 @@ angular.module('starter.controllers', [])
   $scope.remove = function(id) {
    var confirmPopup = $ionicPopup.confirm({
 	 title: 'Rezept Löschen',
-	 template: 'Sicher, dass du dieses krasse Rezept löschen willst?'
+	 template: 'Sicher, dass du dieses krasse Rezept löschen willst?',
+	 cancelText: 'Abbrechen'
    });
    confirmPopup.then(function(res) {
 	 if(res) {
@@ -222,7 +287,7 @@ angular.module('starter.controllers', [])
 
 
 .controller('EinkaufslisteCtrl', function($scope) {
-  
+
 })
 
 .controller('NachrichtenCtrl', function($scope) {

@@ -156,9 +156,9 @@ a{
 }
 
 .amount{
-	-webkit-appearance: textfield !important;
-   -moz-appearance:    textfield !important;
-   appearance:         textfield !important;
+	-webkit-appearance: none !important;
+   -moz-appearance:    none !important;
+   appearance:         none !important;
    border-top: 1px solid #ddd !important;
    border-bottom: 1px solid #ddd !important;
     height: 47px !important;
@@ -166,6 +166,8 @@ a{
     font-weight: bolder !important;
     font-size: 30px !important;
     color: #ccc !important;
+    border-radius: 0 !important;
+    box-shadow: none !important
 }
 
 input::-webkit-outer-spin-button,
@@ -196,11 +198,12 @@ button.rounded {
 	font-weight: 700;
 	display: inline-block;
 	float: left;
-	margin: 0 20px 20px 0;
+	margin: 0 0px 0px 0;
 }
 
 .button-bar.portions {
-	width: 50%;
+	width: 48%;
+	float: right;
 }
 
 .button-bar.rounded > div { margin: 0; padding: 0;}
@@ -213,15 +216,15 @@ button.rounded {
 	border-radius: 0 30px 30px 0 ;
 }
 
-button.rounded:hover, button.rounded:focus, button.rounded:active, button.rounded.button-light.activated {
+ button.rounded.button-light.activated {
 	background: #7ac63c;
 	border: 1px solid #7ac63c;
 	color: #fff;
 }
 
-.portions {
-	width: ;
-}
+/*.portions {
+	float: right;
+}*/
 
 
 .account_avatar_wrapper{
@@ -278,5 +281,14 @@ button.rounded:hover, button.rounded:focus, button.rounded:active, button.rounde
 	color: #fff !important;
 	font-size: 13px !important;
 
+}
+
+.rezeptbeschreibung{
+	float: left;
+}
+
+.rezeptbeschreibung p {
+	padding: 0 20px;
+	margin-top: 20px;
 }
 
